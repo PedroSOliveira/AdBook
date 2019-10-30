@@ -1,8 +1,11 @@
-package com.example.ad_book;
+package com.example.ad_book.activity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.ad_book.R;
 
 public class RecuperarSenhaActivity extends AppCompatActivity {
 
@@ -10,5 +13,10 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar_senha);
+
+        ActionBar acb = getSupportActionBar();
+        if(acb != null){
+            acb.hide();
+        }
     }
 }

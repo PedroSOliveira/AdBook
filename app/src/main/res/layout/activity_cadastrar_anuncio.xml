@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CadastrarAnuncioActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#27243F"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textViewCadastrarAnuncio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="Cadastre seu anúncio"
+            android:textColor="#B6BBD7"
+            android:textSize="28dp" />
+
+
+        <TextView
+            android:id="@+id/textViewFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Categoria"
+            android:textColor="#B6BBD7"
+            android:textSize="20dp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_circle_perfil"
+            android:entries="@array/lista_categorias"
+            android:paddingLeft="100dp"
+            android:popupBackground="@drawable/button_circle_perfil"
+            android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
+            />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
+
+        <EditText
+            android:id="@+id/editTextNome"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/text_view_circle"
+            android:drawableLeft="@drawable/ic_chrome_reader_mode_black_24dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint=" Nome do anúncio"
+            android:inputType="textPersonName"
+            android:paddingLeft="18dp"
+            android:textColor="#505573"
+            android:textColorHint="#505573"
+            android:textSize="24dp" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/text_view_circle"
+            android:drawableLeft="@drawable/ic_collections_black_24dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint=" Imagem do anúncio"
+            android:inputType="textPersonName"
+            android:paddingLeft="18dp"
+            android:textColor="#505573"
+            android:textColorHint="#505573"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/textViewDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Descrição"
+            android:textColor="#B6BBD7"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/editTextDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="#373753"
+            android:ems="10"
+            android:hint=" "
+            android:inputType="textPersonName"
+            android:paddingLeft="18dp"
+            android:textColor="#505573"
+            android:textColorHint="#505573"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/button_Cadastrar"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_circle"
+            android:gravity="center"
+            android:text="Cadastrar"
+            android:textColor="#B6BBD7"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
