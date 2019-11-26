@@ -1,6 +1,5 @@
-package com.example.ad_book.fragment;
+package com.example.adbook.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.ad_book.R;
-import com.example.ad_book.activity.LoginActivity;
+import com.example.adbook.R;
 
 public class PerfilFragment extends Fragment {
 
@@ -28,15 +26,8 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
         return view;
     }
-
-    public void onClickSair(View view) {
-        Intent intent = new Intent(view.getContext(), LoginActivity.class );
-        startActivity(intent);
-    }
-
-
-
 
 }

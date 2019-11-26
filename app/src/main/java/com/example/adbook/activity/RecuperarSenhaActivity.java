@@ -1,11 +1,11 @@
-package com.example.ad_book.activity;
+package com.example.adbook.activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.ad_book.R;
+import com.example.adbook.R;
 
 public class RecuperarSenhaActivity extends AppCompatActivity {
 

@@ -1,23 +1,25 @@
-package com.example.ad_book.activity;
+package com.example.adbook.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
-import com.example.ad_book.R;
-import com.example.ad_book.fragment.GeolocalizadorFragment;
-import com.example.ad_book.fragment.HomeFragment;
-import com.example.ad_book.fragment.PerfilFragment;
+import com.example.adbook.R;
+import com.example.adbook.fragment.GeolocalizadorFragment;
+import com.example.adbook.fragment.HomeFragment;
+import com.example.adbook.fragment.PerfilFragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
 
     BottomNavigationView bottomNavigationView;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         init();
 
         final ActionBar acb = getSupportActionBar();
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.menu_perfil:
                         mudarFragment(PerfilFragment.newInstance());
-                        acb.setTitle("PerfilActivity");
+                        acb.setTitle("Perfil");
                         return true;
                 }
 
@@ -63,5 +66,12 @@ public class MainActivity extends AppCompatActivity {
     private void init(){
        bottomNavigationView = findViewById(R.id.bottomNavigation);
 
+    }
+
+    public void onClickSair(View view) {
+
+            Intent intent = new Intent(this, LoginActivity.class );
+            startActivity(intent);
+            overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);
     }
 }

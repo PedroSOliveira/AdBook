@@ -1,4 +1,4 @@
-package com.example.ad_book.fragment;
+package com.example.adbook.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,11 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ad_book.activity.FiltroActivity;
-import com.example.ad_book.R;
-import com.example.ad_book.activity.RotasActivity;
-import com.example.ad_book.adapter.UsuarioAdapter;
-import com.example.ad_book.model.Usuario;
+import com.example.adbook.activity.FiltroActivity;
+import com.example.adbook.R;
+import com.example.adbook.activity.RotasActivity;
+import com.example.adbook.adapter.UsuarioAdapter;
+import com.example.adbook.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +60,8 @@ public class GeolocalizadorFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.toolbar_home, menu);
         menu.findItem(R.id.menu_home_add_anuncio).setVisible(false);
+        menu.findItem(R.id.menu_home_mapa).setVisible(false);
+        menu.findItem(R.id.menu_home_filtro).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

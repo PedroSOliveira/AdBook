@@ -1,4 +1,4 @@
-package com.example.ad_book;
+package com.example.adbook;
 
 import android.content.Context;
 

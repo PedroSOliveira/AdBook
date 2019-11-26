@@ -1,13 +1,21 @@
-package com.example.ad_book.model;
+package com.example.adbook.model;
 
 public class Usuario {
 
     private String nome;
+    private String senha;
     private String email;
     private String endereco;
     private String categoria;
     private String telefone;
     private int imagem;
+
+    public Usuario(String nome, String email, String senha){
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+
+    }
 
     public Usuario(String nome, String email, String endereco, String categoria, String telefone, int imagem) {
         this.nome = nome;
@@ -28,6 +36,14 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getEmail() {

@@ -99,6 +99,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/button_circle_perfil"
             android:gravity="center"
+            android:onClick="onClickSair"
             android:text="Sair"
             android:textColor="#B6BBD7"
             android:textSize="20dp" />

@@ -56,7 +56,7 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="Informe sua senha"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:paddingLeft="18dp"
             android:textColor="#505573"
             android:textColorHint="#505573"

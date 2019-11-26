@@ -1,4 +1,4 @@
-package com.example.ad_book.adapter;
+package com.example.adbook.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ad_book.R;
-import com.example.ad_book.model.Usuario;
+import com.example.adbook.R;
+import com.example.adbook.model.Usuario;
 
 import java.util.List;
 

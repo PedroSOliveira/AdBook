@@ -30,7 +30,7 @@
 
 
         <EditText
-            android:id="@+id/editTextNome"
+            android:id="@+id/nomeUser"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -46,7 +46,7 @@
             android:textColorHint="#505573"
             android:textSize="24dp" />
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/emailUser"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -63,7 +63,7 @@
             android:textSize="24dp" />
 
         <EditText
-            android:id="@+id/editTextSenhaCadastro"
+            android:id="@+id/senhauser"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"

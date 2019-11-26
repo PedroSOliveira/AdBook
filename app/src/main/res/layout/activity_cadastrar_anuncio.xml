@@ -43,7 +43,7 @@
             android:textSize="20dp" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/categoriaFiltro"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -64,7 +64,7 @@
 
 
         <EditText
-            android:id="@+id/editTextNome"
+            android:id="@+id/editTextNomeAnuncio"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -79,17 +79,18 @@
             android:textColor="#505573"
             android:textColorHint="#505573"
             android:textSize="24dp" />
+
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/editTextEnderecoAnuncio"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:background="@drawable/text_view_circle"
-            android:drawableLeft="@drawable/ic_collections_black_24dp"
+            android:drawableLeft="@drawable/ic_business_black_24dp"
             android:drawablePadding="10dp"
             android:ems="10"
-            android:hint=" Imagem do anúncio"
+            android:hint="Endereço do anúncio"
             android:inputType="textPersonName"
             android:paddingLeft="18dp"
             android:textColor="#505573"
@@ -130,6 +131,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_circle"
             android:gravity="center"
+            android:onClick="onClickCadastrar"
             android:text="Cadastrar"
             android:textColor="#B6BBD7"
             android:textSize="18dp" />

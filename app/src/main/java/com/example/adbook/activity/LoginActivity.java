@@ -1,4 +1,4 @@
-package com.example.ad_book.activity;
+package com.example.adbook.activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
-import com.example.ad_book.R;
+import com.example.adbook.Database;
+import com.example.adbook.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,28 +28,35 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickEntrar(View view) {
-        if (view.getId() == R.id.button_entrar){
+
+        EditText login = findViewById(R.id.editTextLogin);
+        EditText senha = findViewById(R.id.editTextSenha);
+
+        boolean validaUsuario = Database.validaUsuario(login.getText().toString(), senha.getText().toString());
+
+        if(validaUsuario){
             Intent intent = new Intent(this, MainActivity.class );
             startActivity(intent);
             overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);
-
         }
+
     }
 
     public void onClickCadastrar(View view) {
-        if (view.getId() == R.id.textViewCadastro){
+
             Intent intent = new Intent(this, CadastroActivity.class );
             startActivity(intent);
             overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);
-        }
+
     }
 
     public void onClickRecuperarSenha(View view) {
-        if (view.getId() == R.id.textViewEsqueciSenha){
+
             Intent intent = new Intent(this, RecuperarSenhaActivity.class );
             startActivity(intent);
             overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);
-        }
+
     }
+
 
 }

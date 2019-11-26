@@ -1,7 +1,8 @@
-package com.example.ad_book.fragment;
+package com.example.adbook.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,20 +17,23 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ad_book.activity.CadastrarAnuncioActivity;
-import com.example.ad_book.activity.FiltroActivity;
-import com.example.ad_book.R;
-import com.example.ad_book.adapter.AnuncioAdapter;
-import com.example.ad_book.model.Anuncio;
+import com.example.adbook.activity.CadastrarAnuncioActivity;
+import com.example.adbook.activity.FiltroActivity;
+import com.example.adbook.R;
+import com.example.adbook.activity.RotasActivity;
+import com.example.adbook.adapter.AnuncioAdapter;
+import com.example.adbook.model.Anuncio;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment implements AnuncioAdapter.OnAnuncioListener{
 
     private RecyclerView recyclerView;
     private List<Anuncio> anuncios = new ArrayList<>();
+
 
     public static HomeFragment newInstance(){
         return new HomeFragment();
@@ -52,7 +56,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         // Configurar Adapter
 
-        AnuncioAdapter anuncioAdapter = new AnuncioAdapter(anuncios);
+        AnuncioAdapter anuncioAdapter = new AnuncioAdapter(anuncios,this);
 
         // Configurar recycle view
 
@@ -101,15 +105,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void criarAnuncio(){
 
-        Anuncio a = new Anuncio("Empreenday", "Evento na UFC quixadá", "Endereco da ufc", R.drawable.ufcqx );
-        anuncios.add(a);
-        anuncios.add(a);
-        anuncios.add(a);
-        anuncios.add(a);
+
     }
 
     @Override
-    public void onClick(View v) {
-        Toast.makeText(getContext(), "Click", Toast.LENGTH_LONG).show();
+    public void onAnuncioClick(int position, Anuncio anuncio) {
+
+        Log.i("Anuncio", anuncio.getLatLng()+" anuncio ");
+
+        Intent intent = new Intent(getContext(), RotasActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putDouble("lat", anuncio.getLatLng().latitude);
+        bundle.putDouble("long", anuncio.getLatLng().longitude);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
