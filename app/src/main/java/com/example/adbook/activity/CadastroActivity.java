@@ -28,6 +28,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void onClickCadastrar(View view) {
 
+
         EditText nome = findViewById(R.id.nomeUser);
         EditText email = findViewById(R.id.emailUser);
         EditText senha = findViewById(R.id.senhauser);
@@ -35,6 +36,7 @@ public class CadastroActivity extends AppCompatActivity {
         Usuario u = new Usuario(nome.getText().toString(), email.getText().toString(),  senha.getText().toString() );
 
         Database.addUsuario(u);
+        new Database().teste(nome.getText().toString());
 
         Intent intent = new Intent(this, LoginActivity.class );
         startActivity(intent);
