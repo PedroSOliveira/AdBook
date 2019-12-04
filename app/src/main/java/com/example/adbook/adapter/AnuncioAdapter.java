@@ -1,5 +1,6 @@
 package com.example.adbook.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.adbook.Database;
 import com.example.adbook.R;
 import com.example.adbook.model.Anuncio;
+
 
 import java.util.List;
 
@@ -19,10 +20,15 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.MyViewHo
 
     private List<Anuncio> anuncios;
     private OnAnuncioListener onAnuncioListener;
+    private Context context;
 
-    public AnuncioAdapter(List<Anuncio> anuncios, OnAnuncioListener onAnuncioListener){
-        this.anuncios = Database.getDbAnuncio();
+    public AnuncioAdapter(Context context, OnAnuncioListener onAnuncioListener){
+        this.context = context;
         this.onAnuncioListener = onAnuncioListener;
+    }
+
+    public void addAnuncios(List<Anuncio> anuncios) {
+        this.anuncios = anuncios;
     }
 
     @NonNull

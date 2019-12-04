@@ -17,7 +17,8 @@
         <activity android:name="com.example.adbook.activity.RotasActivity"></activity>
         <activity android:name="com.example.adbook.activity.FiltroActivity" />
         <activity android:name="com.example.adbook.activity.CadastrarAnuncioActivity" />
-        <activity android:name="com.example.adbook.activity.MainActivity" />
+        <activity android:name="com.example.adbook.activity.MainActivity" >
+        </activity>
         <activity android:name="com.example.adbook.activity.RecuperarSenhaActivity" />
         <activity android:name="com.example.adbook.activity.CadastroActivity" />
         <activity android:name="com.example.adbook.activity.LoginActivity">

@@ -8,27 +8,39 @@ public class Usuario {
     private String endereco;
     private String categoria;
     private String telefone;
-    private int imagem;
+    private String avatar;
 
-    public Usuario(String nome, String email, String senha){
+    public Usuario(String nome, String email){
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
-
+        this.endereco = "";
+        this.categoria = "";
+        this.telefone = "";
+        this.avatar = "";
     }
 
-    public Usuario(String nome, String email, String endereco, String categoria, String telefone, int imagem) {
+    public Usuario(String nome, String email, String endereco, String categoria, String telefone, String avatar) {
         this.nome = nome;
         this.email = email;
         this.endereco = endereco;
         this.categoria = categoria;
         this.telefone = telefone;
-        this.imagem = imagem;
+        this.avatar = avatar;
     }
 
     public Usuario(){
 
     }
+
+    public Usuario(Usuario value) {
+        this.nome = value.getNome();
+        this.email = value.getEmail();
+        this.endereco = value.getEndereco();
+        this.categoria = value.getEndereco();
+        this.telefone = value.getEndereco();
+        this.avatar = value.getAvatar();
+    }
+
 
     public String getNome() {
         return nome;
@@ -78,11 +90,11 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public int getImagem() {
-        return imagem;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setImagem(int imagem) {
-        this.imagem = imagem;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

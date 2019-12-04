@@ -22,7 +22,14 @@ import com.example.adbook.activity.FiltroActivity;
 import com.example.adbook.R;
 import com.example.adbook.activity.RotasActivity;
 import com.example.adbook.adapter.AnuncioAdapter;
+import com.example.adbook.adapter.UsuarioAdapter;
 import com.example.adbook.model.Anuncio;
+import com.example.adbook.model.Usuario;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
@@ -32,7 +39,7 @@ import java.util.List;
 public class HomeFragment extends Fragment implements AnuncioAdapter.OnAnuncioListener{
 
     private RecyclerView recyclerView;
-    private List<Anuncio> anuncios = new ArrayList<>();
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
     public static HomeFragment newInstance(){
@@ -52,18 +59,13 @@ public class HomeFragment extends Fragment implements AnuncioAdapter.OnAnuncioLi
 
         recyclerView = view.findViewById(R.id.rvHome);
 
-        this.criarAnuncio();
-
-        // Configurar Adapter
-
-        AnuncioAdapter anuncioAdapter = new AnuncioAdapter(anuncios,this);
-
         // Configurar recycle view
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(anuncioAdapter);
+
+        fetchAds();
 
         // evento click
 
@@ -103,21 +105,39 @@ public class HomeFragment extends Fragment implements AnuncioAdapter.OnAnuncioLi
          }
     }
 
-    private void criarAnuncio(){
-
-
-    }
-
     @Override
     public void onAnuncioClick(int position, Anuncio anuncio) {
 
-        Log.i("Anuncio", anuncio.getLatLng()+" anuncio ");
 
         Intent intent = new Intent(getContext(), RotasActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putDouble("lat", anuncio.getLatLng().latitude);
-        bundle.putDouble("long", anuncio.getLatLng().longitude);
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+    private void fetchAds(){
+        DatabaseReference ad = mDatabase.child("ad");
+
+        ad.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<Anuncio> ad = new ArrayList<>();
+
+                for (DataSnapshot nameSnapshot : dataSnapshot.getChildren()) {
+                    ad.add(new Anuncio(nameSnapshot.getValue(Anuncio.class)));
+                }
+
+                AnuncioAdapter adapter = new AnuncioAdapter(getContext(), HomeFragment.this );
+                adapter.addAnuncios(ad);
+                adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Erro: "+ databaseError.getMessage(), Toast.LENGTH_SHORT);
+            }
+        });
+    }
+
 }

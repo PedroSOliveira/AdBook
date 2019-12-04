@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
 
-import com.example.adbook.Database;
 import com.example.adbook.R;
 
 public class FiltroActivity extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class FiltroActivity extends AppCompatActivity {
 
         Spinner categoria = findViewById(R.id.categoriaFiltro);
 
-        Database.filtrarAnuncios(categoria.getSelectedItem().toString());
+        //Database.filtrarAnuncios(categoria.getSelectedItem().toString());
         Intent intent = new Intent(this, MainActivity.class );
         startActivity(intent);
         overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);

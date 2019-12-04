@@ -1,5 +1,7 @@
 package com.example.adbook.adapter;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +14,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.adbook.R;
 import com.example.adbook.model.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.MyViewHolder> {
 
+    private Context context;
     private List<Usuario> usuarios;
 
-    public UsuarioAdapter(List<Usuario> usuarios){
-        this.usuarios = usuarios;
-
+    public UsuarioAdapter(Context context){
+        this.context = context;
     }
+
+    public void addUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
 
 
     @NonNull
@@ -39,7 +47,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.MyViewHo
         holder.telefone.setText(u.getTelefone());
         holder.endereco.setText(u.getEndereco());
         holder.categoria.setText(u.getCategoria());
-        holder.imagem.setImageResource(u.getImagem());
+        //holder.imagem.setImageURI();
     }
 
     @Override
@@ -52,7 +60,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.MyViewHo
         TextView categoria;
         TextView endereco;
         TextView telefone;
-        ImageView imagem;
+        //ImageView imagem;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,7 +69,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.MyViewHo
             categoria = itemView.findViewById(R.id.textViewCategoria);
             endereco = itemView.findViewById(R.id.textViewEndereco);
             telefone = itemView.findViewById(R.id.textViewTelefone);
-            imagem = itemView.findViewById(R.id.imageViewUSer);
+            //imagem = itemView.findViewById(R.id.imageViewUSer);
         }
     }
 }

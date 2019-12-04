@@ -2,12 +2,15 @@ package com.example.adbook.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,14 +23,22 @@ import com.example.adbook.R;
 import com.example.adbook.activity.RotasActivity;
 import com.example.adbook.adapter.UsuarioAdapter;
 import com.example.adbook.model.Usuario;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 public class GeolocalizadorFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private List<Usuario> usuarios = new ArrayList<>();
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
     public static GeolocalizadorFragment newInstance(){
         return new GeolocalizadorFragment();
@@ -43,15 +54,13 @@ public class GeolocalizadorFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_geolocalizador, container, false);
+
         recyclerView = view.findViewById(R.id.rvGeolocalizador);
-
-        this.criarUsuarios();
-
-        UsuarioAdapter usuarioAdapter = new UsuarioAdapter(usuarios);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(usuarioAdapter);
+
+        fetchUsers();
 
         return view;
     }
@@ -84,11 +93,30 @@ public class GeolocalizadorFragment extends Fragment {
         }
     }
 
-    private void criarUsuarios(){
-        Usuario u = new Usuario("Pedro", "pedro@adbook.com.br", "Endereco do usuario, numero 77", "T.I", "88 9 9999 8888", R.drawable.user);
-        usuarios.add(u);
-        usuarios.add(u);
-        usuarios.add(u);
-        usuarios.add(u);
+    private void fetchUsers(){
+        DatabaseReference users = mDatabase.child("users");
+
+
+
+        users.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<Usuario> users = new ArrayList<>();
+
+                for (DataSnapshot nameSnapshot : dataSnapshot.getChildren()) {
+                    users.add(new Usuario(nameSnapshot.getValue(Usuario.class)));
+                }
+
+                UsuarioAdapter adapter = new UsuarioAdapter(getContext());
+                adapter.addUsuarios(users);
+                adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Erro: "+ databaseError.getMessage(), Toast.LENGTH_SHORT);
+            }
+        });
     }
 }

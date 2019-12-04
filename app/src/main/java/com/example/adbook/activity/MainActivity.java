@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.adbook.R;
 import com.example.adbook.fragment.GeolocalizadorFragment;
@@ -17,6 +18,7 @@ import com.example.adbook.fragment.HomeFragment;
 import com.example.adbook.fragment.PerfilFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickSair(View view) {
 
+            FirebaseAuth.getInstance().signOut();
+        Toast.makeText(getApplicationContext(), "Logout realizado com sucesso.",
+                Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, LoginActivity.class );
             startActivity(intent);
             overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);

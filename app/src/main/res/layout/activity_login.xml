@@ -30,10 +30,12 @@
 
         <EditText
             android:id="@+id/editTextLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="65dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/text_view_circle"
             android:drawableLeft="@drawable/ic_person_black_24dp"
             android:drawablePadding="10dp"
@@ -41,16 +43,18 @@
             android:hint=" Informe seu login"
             android:inputType="textPersonName"
             android:paddingLeft="18dp"
-            android:textColor="#505573"
+            android:textColor="#FFFFFF"
             android:textColorHint="#505573"
-            android:textSize="24dp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextSenha"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/text_view_circle"
             android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:drawablePadding="10dp"
@@ -58,21 +62,31 @@
             android:hint="Informe sua senha"
             android:inputType="textPassword"
             android:paddingLeft="18dp"
-            android:textColor="#505573"
+            android:textColor="#FFFFFF"
             android:textColorHint="#505573"
-            android:textSize="24dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewEsqueciSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:onClick="onClickRecuperarSenha"
             android:text="Esqueci minha senha"
-            android:textColor="#373753"
+            android:textColor="#B6BBD7"
             android:textSize="20dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarLogin"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/button_entrar"
