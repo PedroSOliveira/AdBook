@@ -84,8 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
-                                    overridePendingTransitio
-                                n(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);
+                                    overridePendingTransition(R.anim.res_anim_fadein, R.anim.res_anim_fadeout);
                                 }
                             });
                         } else {

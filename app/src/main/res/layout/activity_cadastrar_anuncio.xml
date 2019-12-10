@@ -44,18 +44,16 @@
 
         <Spinner
             android:id="@+id/categoriaFiltro"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
             android:background="@drawable/button_circle_perfil"
-            android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
-            android:textColor="#FFFFFF"
             android:entries="@array/lista_categorias"
+            android:paddingLeft="100dp"
             android:popupBackground="@drawable/button_circle_perfil"
-            android:textAlignment="center" />
+            android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
+            />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -67,37 +65,40 @@
 
         <EditText
             android:id="@+id/editTextNomeAnuncio"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
             android:background="@drawable/text_view_circle"
+            android:drawableLeft="@drawable/ic_chrome_reader_mode_black_24dp"
+            android:drawablePadding="10dp"
             android:ems="10"
             android:hint=" Nome do anúncio"
             android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:paddingLeft="18dp"
+            android:textColor="#505573"
             android:textColorHint="#505573"
-            android:textSize="18sp" />
+            android:textSize="24dp" />
 
-        <EditText
-            android:id="@+id/editTextEnderecoAnuncio"
+        <fragment
+            android:id="@+id/inputEnderecoAnuncio"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
-            android:layout_marginRight="30dp"
             android:background="@drawable/text_view_circle"
+            android:drawableLeft="@drawable/ic_business_black_24dp"
+            android:drawablePadding="10dp"
             android:ems="10"
             android:hint="Endereço do anúncio"
             android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:textColor="#505573"
             android:textColorHint="#505573"
-            android:textSize="18sp" />
+            android:textSize="24dp" />
+
 
         <TextView
             android:id="@+id/textViewDescricao"
@@ -112,20 +113,18 @@
 
         <EditText
             android:id="@+id/editTextDescricao"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/text_view_circle"
-            android:hint="Descrição do evento"
+            android:background="#373753"
+            android:ems="10"
+            android:hint=" "
             android:inputType="textPersonName"
-            android:maxLength="100"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:paddingLeft="18dp"
+            android:textColor="#505573"
             android:textColorHint="#505573"
-            android:textSize="16sp" />
+            android:textSize="24dp" />
 
         <ProgressBar
             android:id="@+id/progressBar_anuncio"
@@ -134,6 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:visibility="gone" />
+
 
         <Button
             android:id="@+id/button_cadastrar_anuncio"
